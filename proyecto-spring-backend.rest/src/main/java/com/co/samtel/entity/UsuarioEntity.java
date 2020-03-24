@@ -33,7 +33,6 @@ public class UsuarioEntity implements Serializable{
 	@Column(name = "fecha_creacion")
 	private Date fechaCreacion;
 	@Column(name = "fecha_modificacion")
-//	@LastModifiedDate
 	private Date fechaModificacion;
 	
 	@PrePersist

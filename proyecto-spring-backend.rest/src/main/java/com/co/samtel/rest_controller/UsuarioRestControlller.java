@@ -1,10 +1,12 @@
 package com.co.samtel.rest_controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +21,7 @@ import com.co.samtel.service.IUsuarioService;
 
 @RestController
 @RequestMapping("/user")
+@CrossOrigin("http://localhost:4200")
 public class UsuarioRestControlller {
 	
 	private IUsuarioService iUsuarioService;
@@ -50,6 +53,7 @@ public class UsuarioRestControlller {
 		usuarioActual.setNumeroDocumento(usuario.getNumeroDocumento());
 		usuarioActual.setPerfil(usuario.getPerfil());
 		usuarioActual.setHabilitado(usuario.getHabilitado());
+		usuarioActual.setFechaModificacion(new Date());
 		return new ResponseEntity<UsuarioEntity>(iUsuarioService.save(usuarioActual),HttpStatus.CREATED);
 	}
 
@@ -57,6 +61,6 @@ public class UsuarioRestControlller {
 	@DeleteMapping("usuario/{usuario}")
 	public ResponseEntity<Void> deleteByIdd(@PathVariable("usuario") String usuario){
 		iUsuarioService.deleteById(usuario);
-		return ResponseEntity.notFound().build();
+		return ResponseEntity.ok().build();
 	}
 }

@@ -1,15 +1,14 @@
 package com.co.samtel.entity;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 import lombok.Getter;
 import lombok.Setter;
+
 
 @Entity
 @Table(name = "persona")
@@ -17,7 +16,7 @@ import lombok.Setter;
 public class PersonaEntity implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-
+ 
 	@Id
 	@Column(name = "numero_documento")
 	private String numeroDocumento;
@@ -32,7 +31,7 @@ public class PersonaEntity implements Serializable{
 	@Column(name = "salario")
 	private double salario;
 	@Column(name = "fecha_nacimiento")
-	private Date fechaNacimiento;
+	private String fechaNacimiento;
 	@Column(name = "descripcion")
-	private String descripcion;
+	private String descripcion;	
 }

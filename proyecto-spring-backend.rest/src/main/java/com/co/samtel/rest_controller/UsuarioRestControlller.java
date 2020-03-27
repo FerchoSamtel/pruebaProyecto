@@ -43,6 +43,7 @@ public class UsuarioRestControlller {
 	
 	@PostMapping("/usuario")
 	public ResponseEntity<UsuarioEntity> save(@RequestBody UsuarioEntity usuario){
+		System.out.print(usuario);
 		return new ResponseEntity<UsuarioEntity>(iUsuarioService.save(usuario), HttpStatus.CREATED);
 	}
 	
